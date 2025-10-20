@@ -38,10 +38,8 @@ const AboutPage = () => {
     "Home automation system",
   ];
 
-  const aboutSlides = [
-    { title: "Our Story", subtitle: "Building the future together", bg: "from-[#f9f3eb] to-[#fff9f0]" },
-    { title: "Excellence & Innovation", subtitle: "Committed to your success", bg: "from-[#f9f3eb] to-[#fff9f0]" },
-  ];
+  
+
 
   const associations = [
   {  name:"scheider",logo: schneiderLogo },
@@ -67,7 +65,7 @@ const AboutPage = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#fffaf4] to-[#fffdf8] text-[#3e2c1c]">
-      <Slider slides={aboutSlides} />
+      <Slider />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* About Us Section */}

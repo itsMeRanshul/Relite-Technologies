@@ -1,83 +1,86 @@
 import React, { useState, useEffect } from "react";
+import s1Image from "../assets/Slider/s1.png"
+import s2Image from "../assets/Slider/s2.png"
+import s3Image from "../assets/Slider/s3.png"
 
-const Slider = ({ slides }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const SliderComponent = () => {
+  const slides = [
+    { id: 1, title: "Slide 1", image: s1Image },
+    { id: 2, title: "Slide 2", image: s2Image },
+    { id: 3, title: "Slide 3", image: s3Image },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
   }, [slides.length]);
 
-  const ChevronLeft = () => (
-    <svg className="w-6 h-6 text-[#3e2c1c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-    </svg>
-  );
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  };
 
-  const ChevronRight = () => (
-    <svg className="w-6 h-6 text-[#3e2c1c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  );
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
-    <div className="relative h-96 overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+    <div className="relative w-full max-w-7xl mx-auto mt-4 overflow-hidden">
+      {/* Slider */}
+      <div
+        className="flex transition-transform duration-[1200ms] ease-[cubic-bezier(0.77, 0, 0.175, 1)]"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {slides.map((slide) => (
           <div
-            className={`h-full bg-gradient-to-r ${slide.bg} flex items-center justify-center text-[#fff9f0] shadow-[0_8px_30px_rgba(191,162,122,0.1)]`}
+            key={slide.id}
+            className="min-w-full flex-shrink-0 transition-opacity duration-[800ms]"
           >
-            <div className="text-center px-4">
-              <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 animate-fadeIn">
-                {slide.title}
-              </h1>
-              <p className="text-xl md:text-2xl font-medium animate-fadeIn">{slide.subtitle}</p>
-            </div>
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-lg"
+            />
+            <h3 className="text-center text-sm sm:text-base md:text-lg font-medium mt-2 text-[#333333]">
+              {slide.title}
+            </h3>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      {/* Navigation Buttons */}
       <button
-        onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#fff9f0]/20 hover:bg-[#fff9f0]/30 p-3 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(191,162,122,0.1)]"
+        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-[#888888] text-white p-2 rounded-full shadow-lg hover:bg-[#555555] focus:outline-none focus:ring-2 focus:ring-[#888888] transition-transform duration-300 hover:scale-110"
+        onClick={prevSlide}
       >
-        <ChevronLeft />
+        &#8249;
       </button>
       <button
-        onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#fff9f0]/20 hover:bg-[#fff9f0]/30 p-3 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(191,162,122,0.1)]"
+        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-[#888888] text-white p-2 rounded-full shadow-lg hover:bg-[#555555] focus:outline-none focus:ring-2 focus:ring-[#888888] transition-transform duration-300 hover:scale-110"
+        onClick={nextSlide}
       >
-        <ChevronRight />
+        &#8250;
       </button>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+
+      {/* Dots Indicator */}
+      <div className="flex justify-center space-x-2 mt-4">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-[#fff9f0] w-8' : 'bg-[#eaddc8]/50'
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-colors duration-300 transform hover:scale-125 ${
+              index === currentIndex ? "bg-[#333333]" : "bg-[#BBBBBB]"
             }`}
           />
         ))}
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default Slider;
+export default SliderComponent;

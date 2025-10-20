@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/logo_trans.png'
 
+
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -18,23 +19,7 @@ const HomePage = () => {
     navigate("/about"); // Navigate to About Us page
   };
 
-  const homeSlides = [
-    {
-      title: "Innovation in Every Solution",
-      subtitle: "Leading the way in refined technology",
-      bg: "from-[#fffaf4] to-[#fffdf8]",
-    },
-    {
-      title: "Quality You Can Trust",
-      subtitle: "Delivering elegance in every detail",
-      bg: "from-[#fffaf4] to-[#fffdf8]",
-    },
-    {
-      title: "Your Success, Our Mission",
-      subtitle: "Partnership that feels timeless",
-      bg: "from-[#fffaf4] to-[#fffdf8]",
-    },
-  ];
+ 
 
   const keyAreas = [
     { icon: "⚡", title: "Innovation", desc: "Elegant technology crafted for performance" },
@@ -45,7 +30,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#fffaf4] to-[#fffdf8] text-[#3e2c1c]">
-      <Slider slides={homeSlides} />
+      <Slider />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Intro Section */}
@@ -54,24 +39,27 @@ const HomePage = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-       <div className="relative group">
-  <div className="relative bg-gradient-to-br from-[#f9f3eb] via-[#fef8f1] to-[#f5ede3] rounded-3xl h-96 flex items-center justify-center overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
+   <div className="relative group">
+  <div className="relative bg-gradient-to-br from-[#f9f3eb] via-[#fef8f1] to-[#f5ede3] rounded-3xl h-[28rem] flex items-center justify-center overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
     
     {/* Animated glow effect behind the logo */}
-    <div className="absolute w-64 h-64 bg-gradient-to-r from-[#bfa27a]/30 via-[#d4b896]/40 to-[#bfa27a]/30 rounded-full filter blur-3xl animate-[pulse_3s_ease-in-out_infinite]"></div>
-    <div className="absolute w-48 h-48 bg-[#bfa27a]/50 rounded-full filter blur-2xl animate-[ping_4s_ease-in-out_infinite]"></div>
+    <div className="absolute w-72 h-72 bg-gradient-to-r from-[#bfa27a]/30 via-[#d4b896]/40 to-[#bfa27a]/30 rounded-full filter blur-3xl animate-[pulse_3s_ease-in-out_infinite]"></div>
+    <div className="absolute w-56 h-56 bg-[#bfa27a]/50 rounded-full filter blur-2xl animate-[ping_4s_ease-in-out_infinite]"></div>
     
     {/* Logo container with border and animations */}
     <div className="relative">
       {/* Rotating border glow */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-[#bfa27a] via-[#d4b896] to-[#bfa27a] rounded-full opacity-75 blur-lg animate-[spin_8s_linear_infinite]"></div>
+      <div className="absolute -inset-6 bg-gradient-to-r from-[#bfa27a] via-[#d4b896] to-[#bfa27a] rounded-full opacity-75 blur-lg animate-[spin_8s_linear_infinite]"></div>
+
+      {/* NEW: Dark gradient background behind logo for white text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1c1b1a] via-[#2a2018] to-[#3b2f22] rounded-full scale-105 shadow-[0_0_50px_rgba(0,0,0,0.4)]"></div>
       
       {/* Logo image with border */}
-      <div className="relative bg-white/80 backdrop-blur-sm rounded-full p-4 border-4 border-[#bfa27a]/30 shadow-[0_0_40px_rgba(191,162,122,0.3)]">
+      <div className="relative bg-[#1e1b17]/90 backdrop-blur-sm rounded-full p-6 border-4 border-[#bfa27a]/40 shadow-[0_0_60px_rgba(191,162,122,0.45)]">
         <img
           src={logo} // replace with your logo path
           alt="Logo"
-          className="relative w-40 h-40 object-contain transform group-hover:scale-110 group-hover:rotate-[5deg] transition-all duration-700 animate-[float_6s_ease-in-out_infinite]"
+          className="relative w-45 h-45 object-contain transform group-hover:scale-110 group-hover:rotate-[5deg] transition-all duration-700 animate-[float_6s_ease-in-out_infinite]"
         />
       </div>
     </div>

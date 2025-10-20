@@ -51,7 +51,7 @@ export default function Contact() {
                         {[
                             {
                                 title: "Address",
-                                content: "No. 144/4, Second Floor, Gyan Khand Second, IndirapuramGhaziabad - 201010, Uttar Pradesh, India",
+                                content: "No. 144/4, Second Floor, Gyan Khand Second, Indirapuram Ghaziabad - 201010, Uttar Pradesh, India",
                                 iconBg: "bg-gradient-to-r from-[#bfa27a] to-[#d6b982]",
                                 icon: (
                                     <path

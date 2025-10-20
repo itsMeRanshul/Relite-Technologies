@@ -39,12 +39,15 @@ const Navbar = ({ setSelectedProduct }) => {
           >
             <div className="relative flex items-center justify-center">
               {/* Glowing background circle */}
-              <div className="absolute h-16 w-16 md:h-18 md:w-18 rounded-full bg-gradient-to-b from-[#fef9f0] to-[#c4a676]/40 blur-md opacity-110"></div>
+             <div className="absolute h-16 w-16 md:h-18 md:w-18 rounded-full 
+  bg-gradient-to-b from-[#000000]/90 to-[#1a1a1a]/70 blur-lg opacity-90 
+  shadow-[0_0_25px_rgba(0,0,0,0.8)]">
+</div>
 
               {/* Logo */}
               <img
                 src={logo}
-                alt="Smart Innovation Logo"
+                alt="Relite Technologies Logo"
                 className="relative h-16 w-16 object-contain rounded-full border-2 border-[#c4a676] 
                            shadow-[0_0_18px_rgba(196,166,118,0.4)] group-hover:scale-110 transition-transform duration-500 ease-in-out animate-pulseGlow"
               />
