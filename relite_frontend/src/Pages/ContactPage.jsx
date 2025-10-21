@@ -116,7 +116,9 @@ export default function Contact() {
                     <div className="animate-fadeIn">
                         <iframe
                             className="w-full h-64 sm:h-80 rounded-xl shadow-lg border-4 border-[#eaddc8]"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112050.47511438576!2d77.2216803039902!3d28.642426821626586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfac98eff8509%3A0xbf38694f74c4352b!2s146%2C%20Gyan%20Khand%20II%2C%20Indirapuram%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201014!5e0!3m2!1sen!2sin!4v1760908658291!5m2!1sen!2sin"
+
+                           src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56015.243558425434!2d77.3374113887069!3d28.661134232236435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUG-01%2CPlot%20No%2036%2CShakti%20Khand%20III%20Indrapuram%20Ghaziabad%2CUP-201014%2C%20Uttar%20Pradesh%2C%20India!5e0!3m2!1sen!2sin!4v1761068861340!5m2!1sen!2sin" 
+                            
                             allowFullScreen=""
                             loading="lazy"
                         ></iframe>
