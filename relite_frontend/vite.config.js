@@ -10,12 +10,14 @@ export default defineConfig({
     tailwindcss(),
     sitemap({
       hostname: 'https://www.relitetechnologies.com',
-      urls: [
+      dynamicRoutes: [
         '/',          
         '/about',     
         '/products',  
-        '/contact', 
+        '/contact',
       ],
+      changefreq: 'daily',
+      priority: 1.0,
     }),
   ],
 })
