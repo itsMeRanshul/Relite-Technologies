@@ -46,9 +46,7 @@ const SliderComponent = () => {
               alt={slide.title}
               className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-lg"
             />
-            <h3 className="text-center text-sm sm:text-base md:text-lg font-medium mt-2 text-[#333333]">
-              {slide.title}
-            </h3>
+            
           </div>
         ))}
       </div>
